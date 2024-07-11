@@ -1,17 +1,8 @@
-export interface Movie {
-    id: number;
-    title: string;
-    overview: string;
-    poster_path?: string;
-    vote_average: number;
-  }
-
 import { HTMLAttributes } from "react";
-import { Movie } from '../types';
+import { IMovieProps } from "../../hooks/WishList/types";
 
 export interface IMovieCardProps extends HTMLAttributes<HTMLDivElement> {
-    movie: Movie;
-    inWishlist?: boolean
-    handleAddMovieOnWishlist?: (movie: Movie) => void;
-
+    movie: any
+    inWishlist: boolean
+    handleAddMovieOnWishlist: (movie: IMovieProps) => void
 }

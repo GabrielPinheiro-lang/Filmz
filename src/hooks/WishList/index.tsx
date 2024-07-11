@@ -34,7 +34,7 @@ export function WishListProvider(props: iWishListProviderProps): JSX.Element {
             wishList, 
             setWishList,
             handleAddOrRemoveMovieOnWishList,
-            isMovieInWishList,
+            isMovieInWishList
             }}>
             {props.children}
         </WishListContext.Provider>

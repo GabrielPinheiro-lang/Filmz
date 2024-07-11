@@ -5,13 +5,14 @@ import * as Styles from '../styles/pages/Search';
 import { MovieCard } from '../components/MovieCard';
 import { Loading } from '../components/Loading';
 import { useWishList } from '../hooks/WishList';
+import { IMovieRequestProps } from '../interfaces/Movie';
 
 
 export function Search() {
-  const { IsMovieWishList, handleAddOrRemoveMovieOnWishList } = useWishList();
+  const { isMovieInWishList, handleAddOrRemoveMovieOnWishList } = useWishList();
   const [isLoading, setIsLoading] = useState(true);
-  const [keyword] = useSearchParams();
-  const [movies, setMovies] = useState<IMovieRequestProps[]>([]);
+  const [keyword] = useSearchParams()
+  const [movies, setMovies] = useState<IMovieRequestProps[]>([])
 
   useEffect(() => {
     api.get('/search/movie', {
@@ -24,7 +25,7 @@ export function Search() {
     }).finally(() => {
       setIsLoading(false);
     });
-  }, [keyword.get('keyword')]);
+  }, [keyword.get('keyword')])
 
   return (
     <Styles.Container>
@@ -43,7 +44,8 @@ export function Search() {
               handleAddMovieOnWishlist={() => handleAddOrRemoveMovieOnWishList(movie)}
               className='card' 
               />
-          )))}
+          )))
+          }
         </div>
       </section>
     </Styles.Container>

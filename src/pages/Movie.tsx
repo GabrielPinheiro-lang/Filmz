@@ -12,14 +12,14 @@ import { useWishList } from '../hooks/WishList';
 export function Movie() {
   const { isMovieInWishList, handleAddOrRemoveMovieOnWishList } = useWishList();
 
-  const {id} = useParams()
-  const currentUrl = window.location.href
+  const  { id } = useParams();
+  const currentUrl = window.location.href;
   const [movie, setMovie] = useState<IMovieRequestProps>({} as IMovieRequestProps);
   const [isLoading, setIsLoading] = useState(true);
   const [isLinkCopiedToClipboard, setIsLinkCopiedToClipboard] = useState(false);
   const movieYearRelease = movie && new Date(movie.release_date).getFullYear();
   const movieHours = movie && Number(Math.trunc(movie.runtine / 60).toFixed(0));
-  const movieMinutes = movie && movieHours && (movie.runtine - movieHours * 60).toFixed(0)
+  const movieMinutes = movie && movieHours && (movie.runtine - movieHours * 60).toFixed(0);
 
   function handleCopyLinkToClipboard() {
     setIsLinkCopiedToClipboard(true);
@@ -53,7 +53,8 @@ export function Movie() {
       <section id="presentation">
         <div className="movie-poster-wrapper">
           {movie?.poster_path ? (
-            <img src={`${import.meta.env.VITE_THE_MOVIE_DB_IMAGES_URL}${movie?.poster_path}`} alt={`Capa do filme ${movie?.title}`} />
+            <img src={`${import.meta.env.VITE_THE_MOVIE_DB_IMAGES_URL}${movie?.poster_path}`}
+            alt={`Capa do filme ${movie?.title}`} />
             ) : (
             <>
               <FiCameraOff />
@@ -67,7 +68,7 @@ export function Movie() {
             <h1>{movie?.title}</h1>
 
             <h4>
-            {movie.genres.map((genre) => genre.name).toString().replaceAll(",", ", ")}movie
+            {movie.genres.map((genre) => genre.name).toString().replaceAll(',', ', ')}movie
               <span>•</span>
               {movieYearRelease}
               <span>•</span>

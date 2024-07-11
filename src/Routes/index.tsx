@@ -17,5 +17,5 @@ export function AppRoutes() {
             <Route path="/wishlist" element={<WishList />} />
         </Routes>
         </BrowserRouter>
-    );
+    )
 }
